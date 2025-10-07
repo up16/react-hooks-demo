@@ -21,3 +21,6 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+# Ignore any files containing "Practice" in src directory and subdirectories
+src/**/*Practice*
