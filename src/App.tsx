@@ -11,6 +11,7 @@ import React, {useReducer} from 'react';
 import ComponentC from './components/ComponentC';
 import ComponentB from './components/ComponentB';
 import ComponentA from './components/ComponentA';
+import ReducerDataFetching from './components/ReducerDataFetching';
 // import ReducerHookTwo from './components/ReducerHookTwo';
 // import ReducerHookThree from './components/ReducerHookThree';
 // import ReducerHookOne from './components/ReducerHookOne';
@@ -58,6 +59,7 @@ function App() {
         <ComponentB />
         <ComponentA />
       </CounterContext.Provider>
+      <ReducerDataFetching />
       {/* <ReducerHookOne /> */}
       {/* <ReducerHookTwo /> */}
       {/* <ReducerHookThree /> */}

@@ -134,3 +134,9 @@ return <div>{user}</div>
 
 [9] Local state management
 - useReducer only
+
+[8] useReducer vs useState
+- number, string, boolean -> useState | object, array -> useReducer
+- No of state transiions: one or two -> useState | many -> useReducer
+- business login: No useState | Yes useReducer
+- State: Local -> useState | Global -> useReducer
