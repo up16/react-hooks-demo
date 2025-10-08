@@ -12,6 +12,8 @@ import ComponentC from './components/ComponentC';
 import ComponentB from './components/ComponentB';
 import ComponentA from './components/ComponentA';
 import ReducerDataFetching from './components/ReducerDataFetching';
+import ParentComponent from './components/ParentComponent';
+import MemoCounter from './components/MemoCounter';
 // import ReducerHookTwo from './components/ReducerHookTwo';
 // import ReducerHookThree from './components/ReducerHookThree';
 // import ReducerHookOne from './components/ReducerHookOne';
@@ -63,6 +65,8 @@ function App() {
       {/* <ReducerHookOne /> */}
       {/* <ReducerHookTwo /> */}
       {/* <ReducerHookThree /> */}
+      {/* <ParentComponent /> */}
+      <MemoCounter />
     </div>
   );
 }

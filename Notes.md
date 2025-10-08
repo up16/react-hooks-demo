@@ -140,3 +140,78 @@ return <div>{user}</div>
 - No of state transiions: one or two -> useState | many -> useReducer
 - business login: No useState | Yes useReducer
 - State: Local -> useState | Global -> useReducer
+
+[9] useCallback Hook
+- Needed to furtur optimize memoized components with callback functions passed to the child component (React.memo(ChildComponent))
+
+[10] React Component Re-rendering Behavior
+**KEY CONCEPT: When ANY state changes in a component, the ENTIRE component re-renders**
+
+### The Re-rendering Rule:
+```jsx
+function MyComponent() {
+  const [count, setCount] = useState(0);      // State 1
+  const [name, setName] = useState('');       // State 2
+  
+  console.log('🔄 ENTIRE COMPONENT RE-RENDERS!');
+  
+  return (
+    <div>
+      <button onClick={() => setCount(count + 1)}>Button 1</button>  {/* Click this... */}
+      <button onClick={() => setName('new')}>Button 2</button>       {/* ...both buttons re-render */}
+    </div>
+  );
+}
+```
+
+### What Happens:
+1. **Click Button 1** (`setCount`) → **Entire component re-renders**
+2. **Click Button 2** (`setName`) → **Entire component re-renders**  
+3. **Both buttons get recalculated** → **Both re-render even if only one changed**
+
+### Why React Does This:
+- React's Philosophy: When state changes, the component needs to re-render to reflect new state
+- The entire function runs: Your component is just a function - when called, everything inside executes
+- React doesn't know which parts depend on which state until it runs the function
+
+### Optimization Strategies:
+
+#### 1. Split into Separate Components:
+```jsx
+function Button1() {
+  const [count, setCount] = useState(0);
+  return <button onClick={() => setCount(c => c + 1)}>Count: {count}</button>;
+}
+
+function Button2() {
+  const [name, setName] = useState('');
+  return <button onClick={() => setName('new')}>Name: {name}</button>;
+}
+
+// Now each button only re-renders when its own state changes
+```
+
+#### 2. Use React.memo for Child Components:
+```jsx
+const ExpensiveButton = React.memo(({ onClick, children }) => {
+  console.log('ExpensiveButton rendered');
+  return <button onClick={onClick}>{children}</button>;
+});
+```
+
+#### 3. Use useMemo/useCallback for Expensive Operations:
+```jsx
+const expensiveValue = useMemo(() => {
+  // Expensive calculation only runs when 'count' changes
+  return doExpensiveCalculation(count);
+}, [count]); // Only recalculates if count changes
+
+const handleClick = useCallback(() => {
+  // Function only recreated when dependencies change
+  doSomething(count);
+}, [count]);
+```
+
+### Testing Re-renders:
+Add `console.log('Component rendered')` to see when components re-render.
+Every state change = full component re-render!
