@@ -11,9 +11,16 @@ import React, {useReducer} from 'react';
 import ComponentC from './components/ComponentC';
 import ComponentB from './components/ComponentB';
 import ComponentA from './components/ComponentA';
-import ReducerDataFetching from './components/ReducerDataFetching';
-import ParentComponent from './components/ParentComponent';
-import MemoCounter from './components/MemoCounter';
+// import CustomHookOne from './components/CustomHookOne';
+// import CustomHookOneDoc from './components/CustomHookOneDoc';
+// import CustomHookThree from './components/CustomHookThree';
+import CustomHookFour from './components/CustomHookFour';
+// import ReducerDataFetching from './components/ReducerDataFetching';
+// import ParentComponent from './components/ParentComponent';
+// import MemoCounter from './components/MemoCounter';
+// import FocusInput from './components/FocusInput';
+// import FocusInputTwo from './components/FocusInputTwo';
+// import FocusInputThree from './components/FocusInputThree';
 // import ReducerHookTwo from './components/ReducerHookTwo';
 // import ReducerHookThree from './components/ReducerHookThree';
 // import ReducerHookOne from './components/ReducerHookOne';
@@ -61,12 +68,19 @@ function App() {
         <ComponentB />
         <ComponentA />
       </CounterContext.Provider>
-      <ReducerDataFetching />
+      {/* <ReducerDataFetching /> */}
       {/* <ReducerHookOne /> */}
       {/* <ReducerHookTwo /> */}
       {/* <ReducerHookThree /> */}
       {/* <ParentComponent /> */}
-      <MemoCounter />
+      {/* <MemoCounter /> */}
+      {/* <FocusInput /> */}
+      {/* <FocusInputTwo /> */}
+      {/* <FocusInputThree /> */}
+      {/* <CustomHookOne />
+      <CustomHookOneDoc /> */}
+      {/* <CustomHookThree /> */}
+      <CustomHookFour />
     </div>
   );
 }
